@@ -12,6 +12,7 @@ library(dplyr)
 
 # global params
 kCommonContactsLimit = 10
+me = TRUE
 
 # set up db connection
 dbdrv = dbDriver("SQLite")
@@ -60,7 +61,7 @@ messages[, day := factor(day, levels = c("Monday", "Tuesday", "Wednesday", "Thur
 messages[, nchar := nchar(Text)]
 
 ## my messages concatenated with SMS messages
-load("messages.rda")
+if (me) { load("messages.rda") }
 
 # find common contacts
 common = messages[!is.na(Name), .N, Name][order(-N)][1:15, Name]
@@ -167,13 +168,15 @@ p_punctheatlog = ggheatmap(punct[punct != "£" & Type == "Received"],
           rotateFlag = FALSE,
           minGroupBound = 10) + xlab("Punctuation") + ylab("Name") + ggtitle("Heatmap of Punctuation People Like")
 
+plots = list(
+p_whentext,
+p_ntexts,
+p_index,
+p_invindex,
+p_whenhist,
+p_whowhenhist,
+p_sumpunct,
+p_punctheat,
+p_punctheatlog)
 
-# p_whentext
-# p_ntexts
-# p_index
-# p_invindex
-# p_whenhist
-# p_whowhenhist
-# p_sumpunct
-# p_punctheat
-# p_punchheatlog
+save(plots, file = "plots.rda")
