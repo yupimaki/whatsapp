@@ -1,0 +1,45 @@
+---
+title: "Texts"
+author: "Akhil Nair"
+date: "October 11, 2015"
+output: html_document
+---
+
+These are your texts. Enjoy some life data.
+```{r, fig.align = 'center', fig.width = 13, fig.height = 4, echo=FALSE}
+load("./plots.rda")
+plots[[1]]
+```
+
+```{r, fig.align = 'center', fig.width = 7, fig.height = 3, echo=FALSE}
+plots[[2]]
+```
+
+```{r, fig.align = 'center', , fig.width = 13, fig.height = 4, echo=FALSE}
+plots[[3]]
+```
+
+```{r, fig.align = 'center', , fig.width = 13, fig.height = 4, echo=FALSE}
+plots[[4]]
+```
+
+```{r, fig.align = 'center', , fig.width = 13, echo=FALSE}
+plots[[5]]
+```
+
+```{r, fig.align = 'center', , fig.width = 9, fig.height = 10, echo=FALSE}
+plots[[6]]
+```
+
+```{r, fig.align = 'center', fig.width = 11, fig.height = 3, echo=FALSE}
+plots[[7]]
+```
+
+```{r, fig.align = 'center', fig.width = 11, fig.height = 5.5, echo=FALSE, message = FALSE, warning = FALSE, comment = FALSE}
+plots[[8]]
+```
+
+```{r, fig.align = 'center', fig.width = 11, fig.height = 5.5, echo=FALSE, message = FALSE, warning = FALSE, comment = FALSE}
+plots[[9]]
+```
+
