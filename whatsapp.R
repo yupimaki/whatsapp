@@ -8,10 +8,10 @@ library(reshape2)
 library(scales)
 library(usefuncs)
 library(tm)
-library(dplyr)
+library(magrittr)
 
 # global params
-kCommonContactsLimit = 10
+kCommonContactsLimit = 15
 me = TRUE
 
 # set up db connection
@@ -64,7 +64,7 @@ messages[, nchar := nchar(Text)]
 if (me) { load("messages.rda") }
 
 # find common contacts
-common = messages[!is.na(Name), .N, Name][order(-N)][1:15, Name]
+common = messages[!is.na(Name), .N, Name][order(-N)][1:kCommonContactsLimit, Name]
 
 # cast summary of texts and characters 
 ntexts = dcast.data.table(messages, Name ~ Type)
